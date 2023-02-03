@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[Application Opened]]>
+    </line>
+    <line>
+      <![CDATA[Login Completed]]>
+    </line>
+    <line>
+      <![CDATA[Logout Completed ]]>
+    </line>
+    <line>
+      <![CDATA[Application Closed]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2023-02-02T11:57:00Z" name="Suite4" finished-at="2023-02-02T11:57:16Z" duration-ms="16420">
+    <groups>
+    </groups>
+    <test started-at="2023-02-02T11:57:00Z" name="Nopackage" finished-at="2023-02-02T11:57:16Z" duration-ms="16420">
+      <class name="com.hrms.selenium.TC_001">
+        <test-method signature="tc001()[pri:0, instance:com.hrms.selenium.TC_001@57af006c]" started-at="2023-02-02T17:27:00Z" name="tc001" finished-at="2023-02-02T17:27:16Z" duration-ms="16407" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Application Opened]]>
+            </line>
+            <line>
+              <![CDATA[Login Completed]]>
+            </line>
+            <line>
+              <![CDATA[Logout Completed ]]>
+            </line>
+            <line>
+              <![CDATA[Application Closed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tc001 -->
+      </class> <!-- com.hrms.selenium.TC_001 -->
+    </test> <!-- Nopackage -->
+  </suite> <!-- Suite4 -->
+</testng-results>
