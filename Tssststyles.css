@@ -1,0 +1,152 @@
+/* CSS for styling the header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+}
+.fixed-header {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /*Adjust as needed
+    /* Your other styles */
+    transition: top 0.5s ease; /* Add transition effect for top property */
+}
+
+.fixed-header.visible {
+    top: 0; /* Slide the header down to its normal position */
+}
+
+.header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.header nav ul li:first-child {
+    margin-left: 0;
+}
+
+.header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.para1 {
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 0, 0);
+    text-shadow: 3px 3px 5px rgba(120, 120, 120, 0.5);
+    margin-top: 40px; /* Adjust to ensure content is not hidden behind fixed header */
+    font-size: 300%;
+}
+
+/* CSS for paragraph styling */
+p {
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.center-align, .right-align, .left-align {
+    width: 300px;
+    height: auto;
+    margin: 20px;
+}
+
+.left-align {
+    float: left;
+}
+
+.right-align {
+    float: right;
+}
+
+.center-align {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CSS for spacer */
+.spacer {
+    height: 50px; /* Adjust height as needed */
+    width: 100%; /* Ensure it spans the full width of the container */
+}
+
+/* CSS for footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.social-links {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.social-links li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff0; /* Change to your preferred hover color */
+}
+
+    /* CSS for Slick carousel */
+.slick-carousel {
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto; /* Center align the carousel */
+}
+
+.slick-carousel img {
+    display: block;
+    margin: 0 auto; /* Center align images horizontally */
+    max-width: 100%; /* Ensure images don't exceed their container */
+}
+
+.slick-slide {
+    transform: scale(0.9); /* Scale down non-centered slides */
+    opacity: 0.7; /* Adjust opacity for non-centered slides */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add transition for smooth effect */
+}
+
+.slick-center {
+    transform: scale(1); /* Scale up centered slide */
+    opacity: 1; /* Ensure centered slide is fully visible */
+}
+
