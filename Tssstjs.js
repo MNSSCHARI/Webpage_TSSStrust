@@ -5,14 +5,8 @@ $(window).on('scroll', function() {
         $('#fixedHeader').removeClass('visible');
     }
 });
-
-
-
-
-
 $(document).ready(function(){
     var slick = $('.slick-carousel');
-  
     // Initialize Slick carousel
     slick.slick({
         centerMode: true,
@@ -42,24 +36,20 @@ $(document).ready(function(){
             }
         ]
     });
-  
     // Automatic movement to center every 3 seconds
     setInterval(function() {
         var centerSlideIndex = slick.slick('slickCurrentSlide');
         var totalSlides = slick.slick('getSlick').slideCount;
-  
         // Move to the next slide in sequence
         var nextIndex = (centerSlideIndex + 1) % totalSlides;
         slick.slick('slickGoTo', nextIndex);
     }, 3000); // Adjust the interval as needed (in milliseconds)
-  
     // Click event to center slide
     $(document).on('click', '.slick-slide', function() {
         var index = $(this).data('slick-index');
         slick.slick('slickGoTo', index);
     });
   });
-  
 //   function openRegistrationForm() {
 //     // Logic to open the registration form
 //     alert('Registration form will open here.');
