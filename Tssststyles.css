@@ -83,6 +83,15 @@ p {
     max-width: 90%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    max-width: 600px; /* Ensures the image doesn't get too large on bigger screens */
+}
 
 /* CSS for Slick carousel */
 .slick-carousel {
