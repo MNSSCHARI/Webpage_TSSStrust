@@ -139,7 +139,30 @@ p {
 .register-btn:hover {
     background-color: rgb(73, 73, 252);
 }
+/* General reset for margin and padding to prevent overflow */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
+/* Ensure header doesn't cause overflow */
+.header, .fixed-header {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Adjust images and containers to fit within viewport */
+.dad, .slick-carousel img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Prevent horizontal scrolling in carousel */
+.slick-carousel .slick-slide {
+    float: left;
+}
 /* CSS for footer */
 footer {
     background-color: #333;
