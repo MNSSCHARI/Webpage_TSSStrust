@@ -162,44 +162,45 @@ body, html {
 .slick-carousel .slick-slide {
     float: left;
 }
-/* CSS for footer */
+/* Footer styles */
 footer {
     background-color: #333;
-    color: #fff;
+    color: #4c0000;
     padding: 20px 0;
     text-align: center;
 }
-
-.fot {
-    color: #ff0;
+.footer-links {
+    margin-bottom: 10px;
 }
-
-.social-links {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-.social-links li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.social-links li:last-child {
-    margin-right: 0;
-}
-
-.social-links a {
+.footer-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 20px;
+    margin: 0 15px;
     transition: color 0.3s ease;
 }
 
-.social-links a:hover {
-    color: #ff0;
+.footer-links a:hover {
+    color: #f39c12;
 }
 
+footer p {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links a {
+        margin: 5px 0;
+    }
+}
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .header-title, .para1 {
