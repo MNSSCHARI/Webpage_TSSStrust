@@ -184,44 +184,56 @@ body, html {
 
 
 
-/* CSS for footer */
-/* footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
+.flickerButton {
+    background: rgb(0, 255, 34);
+    border: none;
+    padding: 10px 20px;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: Impact;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    margin-bottom: 10px;
+    /* position: absolute; */
+    animation: flicker 1s infinite, scrollLeftRight 9s linear infinite;
+  }
+ 
 
-.fot {
-    color: #ff0;
-}
+  .flickerButton:hover {
+    background-color: rgb(73, 73, 252);
+  }
 
-.social-links {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-.social-links li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.social-links li:last-child {
-    margin-right: 0;
-}
-
-.social-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: #ff0;
-} */
-
+  .flickerButton a {
+    color: inherit;
+  }
+  
+  @keyframes flicker {
+    10% { background: rgb(255, 225, 0); }
+    33% { background: rgb(255, 242, 0); }
+    66% { background: rgb(191, 0, 255); }
+    10% { background: rgb(255, 0, 0); }
+  }
+  .scroll-container {
+    width: 110%; /* Adjust to your needs */
+    overflow: hidden; /* Ensure no overflow */
+    position: relative;
+  }
+  @keyframes scrollLeftRight {
+    0% {
+      left: 50%; /* Start position (off-screen left) */
+    }
+    50% {
+      left: 50%; /* Center */
+      transform: translateX(-50%);
+    }
+    100% {
+      left: 50%; /* End position (off-screen right) */
+    }
+  }
 
 
 
@@ -232,6 +244,18 @@ footer {
     padding: 20px 0;
     text-align: center;
 }
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  #flickerButton {
+    margin-bottom: 100px; /* Ensures space between button and footer */
+  }
+  
 
 .footer-links {
     margin-bottom: 10px;
@@ -293,6 +317,13 @@ footer p {
     .button-container {
         height: 70px;
     }
+    
+    .flickerButton {
+        height: 70px;
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
 
     .register-btn {
         padding: 10px 20px;
@@ -334,6 +365,12 @@ footer p {
         height: 60px;
     }
 
+
+    .flickerButton {
+        height: 60px;
+        padding: 8px 16px;
+        font-size: 0.8em;
+    }
     .register-btn {
         padding: 8px 16px;
         font-size: 0.8em;
