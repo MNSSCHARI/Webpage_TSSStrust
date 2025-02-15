@@ -60,7 +60,7 @@ $(document).ready(function(){
     });
   });
   
-//   function of pop up notification
+//   function openRegistrationForm() {
 // new fetaure pop up window
 
 window.onload = function() {
