@@ -60,7 +60,34 @@ $(document).ready(function(){
     });
   });
   
-//   function openRegistrationForm() {
-//     // Logic to open the registration form
-//     alert('Registration form will open here.');
-// }
+//   function of pop up notification
+// new fetaure pop up window
+
+window.onload = function() {
+    var overlay = document.getElementById('overlay');
+    var popup1 = document.getElementById('popupAd1');
+    var popup2 = document.getElementById('popupAd2');
+    overlay.style.display = 'block';
+    popup1.style.display = 'block';
+    setTimeout(function() {
+        popup1.classList.add('show');
+    }, 100);
+};
+
+function closePopup(popupNumber) {
+    var overlay = document.getElementById('overlay');
+    var popup = document.getElementById('popupAd' + popupNumber);
+    popup.classList.remove('show');
+    setTimeout(function() {
+        popup.style.display = 'none';
+        if (popupNumber === 1) {
+            var nextPopup = document.getElementById('popupAd2');
+            nextPopup.style.display = 'block';
+            setTimeout(function() {
+                nextPopup.classList.add('show');
+            }, 100);
+        } else {
+            overlay.style.display = 'none';
+        }
+    }, 500);
+}
