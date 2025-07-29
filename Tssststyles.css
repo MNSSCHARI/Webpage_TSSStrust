@@ -430,3 +430,15 @@ footer p {
     line-height: 30px;
     text-align: center;
 }
+
+
+  .visits {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 14px;
+    background-color: #e7b8ffec; /* soft yellow */
+    border: 1px dotted #666;
+    border-radius: 10px;
+    padding: 5px 12px;
+    color: #333;
+  }
