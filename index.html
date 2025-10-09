@@ -4,196 +4,763 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telugu Samscruthi Sahithi Seva Trust</title>
-    <link rel="stylesheet" href="Tssststyles.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
-    <link rel="icon" href="./Resources/Trust_logo.png"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e7aaf;
+            --secondary-color: #fbbf24;
+            --accent-color: #dc2626;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3b51f6 100%);
+            color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .reg-number {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Fixed Header */
+        .fixed-header {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: top 0.3s ease;
+        }
+
+        .fixed-header.visible {
+            top: 0;
+        }
+
+        .fixed-header .logo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .fixed-header .header-title {
+            font-size: 1.3rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .ceo-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ceo-name {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .ceo-title, .trust-name {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin: 0.5rem 0;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .slick-carousel {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slick-slide {
+            padding: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .slick-slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .slick-slide:not(.slick-center) img {
+            transform: scale(0.85);
+            opacity: 0.6;
+        }
+
+        .slick-center img {
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 4rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .motto {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3b82f6 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Awards Section */
+        .awards-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .awards-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .notification-image {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .notification-image img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .register-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: var(--white);
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        /* Visitor Counter */
+        .visitor-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+        }
+
+        .visits {
+            display: inline-block;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);
+            border: 2px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: var(--white);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-top: 1rem;
+        }
+
+        /* Popup Styles */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            backdrop-filter: blur(5px);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0;
+            background: var(--white);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 16px;
+            max-width: 90%;
+            width: 500px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .popup.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .popup img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 24px;
+            line-height: 40px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .popup .close-btn:hover {
+            background: #b91c1c;
+            transform: rotate(90deg);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-title {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo-section {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            nav {
+                width: 100%;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-title {
+                font-size: 1.3rem;
+            }
+
+            .ceo-name {
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .content p, .awards-description {
+                font-size: 1rem;
+            }
+
+            .motto {
+                font-size: 1.1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.1rem;
+            }
+
+            .logo img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .ceo-name {
+                font-size: 1.4rem;
+            }
+
+            .ceo-title, .trust-name {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .register-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Main Header -->
     <header class="header" id="mainHeader">
-        <div class="logo">
-            <img src="./Resources/Trust_logo.png" alt="Logo" style="width: 100px;">
-        </div>
-        <h1 class="header-title">Telugu Samscruthi Sahithi Seva Trust Reg.no.34/23</h1>
-        <nav>
-            <ul>
-                <li><a href="https://tssstrust.com/">HOME</a></li>
-                <li><a href="#ourmission">ABOUT US</a></li>
-                <li><a href="#award">AWARD</a></li>
-            </ul>
-        </nav>
-    </header>
-    <header class="header fixed-header" id="fixedHeader">
-        <div class="logo">
-            <img src="./Resources/Trust_logo.png" alt="Logo" style="width: 70px;">
-        </div>
-        <h1 class="header-title">Telugu Samscruthi Sahithi Seva Trust Reg.no.34/23</h1>
-        <nav>
-            <ul>
-                <li><a href="https://tssstrust.com/">HOME</a></li>
-                <li><a href="#ourmission">ABOUT US</a></li>
-                <li><a href="#award">AWARD</a></li>
-            </ul>
-        </nav>
-    </header>
-    <br>
-    <br>
-</div>
-
-<div class="overlay" id="overlay">
-<div class="popup" id="popupAd1">
-    <button class="close-btn" onclick="closePopup(1)">&times;</button>
-    <img src="./Resources/Notification/Noti_Rajamundhry.jpg" alt="Popup Ad 1">
-</div>
-<div class="popup" id="popupAd2">
-    <button class="close-btn" onclick="closePopup(2)">&times;</button>
-    <img src="./Resources/Notification/Noti_Delhi.jpg" alt="Popup Ad 2">
-</div>
-<!-- <div class="popup" id="popupAd3">
-    <button class="close-btn" onclick="closePopup(3)">&times;</button>
-    <img src="./Resources/Notification/Noti_Doc_Bang_27_2.jpg" alt="Popup Ad 2">
-</div> -->
-</div>
-
-<section>
-
-<div class="slick-carousel">
-
-    <div>
-        <img src="./Resources/Sllick/image.png" alt="Image3" style="width:100%">
-    </div>
-
-    <div>
-        <img src="./Resources/Sllick/first_anniversary.jpg" alt="Image5" style="width:100%">
-    </div>
-
-    <div>
-      <img src="./Resources/Sllick/IMG-20240501-WA0137.jpg" alt="Image1" style="width:100%">
-    </div>
-
-    <div>
-        <img src="./Resources/Sllick/GSM1.jpg" alt="Image2" style="width:100%">
-    </div>
-
-    
-    
-    <div>
-        <img src="./Resources/Sllick/relevence1.jpg" alt="Image4" style="width:100%">
-    </div>
-
-   
-
-</section>
-  
-    <!-- Add more slides here -->
-  
-    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-  </div>
-      <div>
-        <!-- <img src="Dad.jpg" class="dad" width="400px" height="250px"> -->
-        <h3 class="name">DR.MACHAVARAM GOWRISANKAR</h3>
-        <p class="subname">CEO & Chairman of International Seva Trust </p>
-        <p class="subname2">"Telugu Samscruthi Sahithi Seva Trust Reg.no.34/23" </p>
-
-        </div>
-        <br><br><br>
-         <div><h2 id="ourmission">OUR MISSION</h2></div>
-    <div class="content">
-        
-        <p>Telugu Samscruthi Sahithi Seva Trust offers a platform for you to unveil your hidden talents to the world. Each person possesses a unique and special talent, yet often these abilities go unnoticed or unappreciated. Registered by the Government of India, Telugu Samscruthi Sahithi Seva Trust provides you with the chance to be nominated for prestigious awards and gain recognition for your exceptional skills.</p>
-        <p>By becoming a part of this platform, you have the potential to receive prestigious awards and elevate your success to new heights. This is an opportunity to stand among many world-famous and successful individuals. Don't hesitate to showcase your talents and make the most of this opportunity.</p>
-        <p>Don't miss out on the chance to showcase your talents and make a mark in the world.</p>
-        <p><strong>OUR MOTTO: "Empowering talents with our trust's support, to fuel the journey towards dream fulfillment."</strong></p>
-    </div>
-    <section>
-    
-    <div class="slick-carousel">
-    
-        <div>
-          <img src="./Resources/Sllick/Beng_guru.png" alt="Image1" style="width:100%">
-        </div>
-
-        <div>
-            <img src="./Resources/Sllick/Apparav.jpg" alt="Image2" style="width:100%">
-        </div>
-        
-        <div>
-            <img src="./Resources/Sllick/vij1.jpg" alt="Image4" style="width:100%">
-        </div>
-          
-         <div>
-            <img src="./Resources/Sllick/Beng_1.JPG" alt="Image5" style="width:100%">
-        </div>
-
-        <div>
-            <img src="./Resources/Sllick/kuchupudi1.jpg" alt="Image5" style="width:100%">
-        </div>
-
-       
-
-    </section>
-      
-        <!-- Add more slides here -->
-      
-        <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-      </div>
-
-    
-    <!-- Spacer -->
-    <div class="spacer"></div>
-    <div>
-        <h2 id="award">Awards & Records Categories</h2>
-        <p>Telugu Samscruthi Sahithi Seva Trust gives you the option to choose from the following categories to get the award and to make and break any record in your respective field. When you fill out the registration form please select your field category. Such categories are Acting, Academic, Agriculture, Amazing Magic, Animals/ Birds, Any Type of Collection, Art, Astrology, Vastu, Vedic, Beauty & Make-Up Artist, Biggest and Smallest, Brain Power, Business, Cookery (Cooking), Creativity, Culture, Dance, Education/ Academy/ Institute, Entertainment, Event, Health Care, Medical, Pharmacy, Hotel, Tourism and Travels, Industry / Company, Information Technology, Magic, Mass Media Communication, Mimicry, Miracle Act, Miracle Act, Modeling, Music And Singing, Outstanding, Patience, Performance, Popular Records, Print & Publishing, Recitation, Science & Technology, Singing, Specialty Gifts, Sports, Strange But True, Stunt, Sketching, Teacher/ Professor / Researcher / Writer, Unique Achievement of Social Work, Wonder Act, Yoga, Young Achievers and if your category is not mentioned in this list then you can select “Others”.</p>
-    </div>
-    <div class="image-container">
-        <img src="./Resources/Notification/Noti_Delhi.jpg" alt="Image 3" class="center-align">
-    </div>    
-
-
-
-    <div class="button-container">
-    <a href="https://forms.gle/Ck6geznwgZdmDice7" class="register-btn" style="text-decoration: none;">Register Now</a>
-    </div>
-
-    <!-- <div class="scroll-container">
-        <center>
-            
-            <button class="flickerButton">
-            <a href="https://photos.app.goo.gl/FC6vaXMd4TwGJiwk6" target="youtube" style="text-decoration: underline
-            ; color: inherit;">👉Bengaluru Event Gallery👈</a>
-
-          </button>
-        </center>
-    </div>
-    <div> -->
-        <center> 
-    <!-- hitwebcounter Code START -->
-     <p class="visits"> Visitor Count  : <span id="visits">
-<a href="#" target="_blank">
-<img src="https://hitwebcounter.com/counter/counter.php?page=21264399&style=0006&nbdigits=5&type=page&initCount=5000" title="Counter Widget" Alt=" Websites"    /></a>          
-</span></p></center></div>
-    <footer>
-        <!-- <p class="fot">Connect with us:</p>
-        <ul class="social-links">
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-             Add more social media links as needed -->
-
-                <div class="footer-container">
-                    <div class="footer-links">
-                        <a href="https://www.privacypolicies.com/live/b09addaa-e40b-44b1-b858-d96ab48618bf" target="_blank">Privacy Policy</a>
-                        <a href="https://www.termsfeed.com/live/5737c1a9-54dc-4ea3-bb32-6b62ba3c7176" target="_blank">Terms of Service</a>
-                        <a href="https://www.privacypolicies.com/live/3b81e906-ef11-4cb0-88a3-321d08bd6dba" target="_blank">Cookie Policy</a>  
-                    </div>
-                    <p>© 2024 by Telugu Samscruthi Sahithi Seva Trust. Designed by The Narasimha Sai Srinivas Machavaram</p>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="./Resources/Trust_logo.png" alt="Trust Logo">
                 </div>
+                <div>
+                    <h1 class="header-title">Telugu Samscruthi Sahithi Seva Trust</h1>
+                    <div class="reg-number">Reg.no.34/23</div>
+                </div>
+                <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="https://tssstrust.com/">HOME</a></li>
+                    <li><a href="#ourmission">ABOUT US</a></li>
+                    <li><a href="#award">AWARDS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Fixed Header -->
+    <header class="header fixed-header" id="fixedHeader">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="./Resources/Trust_logo.png" alt="Trust Logo">
+                </div>
+                <div>
+                    <h1 class="header-title">Telugu Samscruthi Sahithi Seva Trust</h1>
+                    <div class="reg-number">Reg.no.34/23</div>
+                </div>
+                <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            </div>
+            <nav id="fixedNav">
+                <ul>
+                    <li><a href="https://tssstrust.com/">HOME</a></li>
+                    <li><a href="#ourmission">ABOUT US</a></li>
+                    <li><a href="#award">AWARDS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Popup Overlay -->
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popupAd1">
+            <button class="close-btn" onclick="closePopup(1)">&times;</button>
+            <img src="./Resources/Notification/Noti_Rajamundhry.jpg" alt="Notification 1">
+        </div>
+        <div class="popup" id="popupAd2">
+            <button class="close-btn" onclick="closePopup(2)">&times;</button>
+            <img src="./Resources/Notification/Noti_Delhi.jpg" alt="Notification 2">
+        </div>
+    </div>
+
+    <!-- Carousel Section 1 -->
+    <section class="carousel-section">
+        <div class="slick-carousel">
+            <div><img src="./Resources/Sllick/image.png" alt="Event 1"></div>
+            <div><img src="./Resources/Sllick/first_anniversary.jpg" alt="Anniversary"></div>
+            <div><img src="./Resources/Sllick/IMG-20240501-WA0137.jpg" alt="Event 2"></div>
+            <div><img src="./Resources/Sllick/GSM1.jpg" alt="Event 3"></div>
+            <div><img src="./Resources/Sllick/relevence1.jpg" alt="Event 4"></div>
+        </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section class="hero-section">
+        <div class="ceo-section">
+            <h2 class="ceo-name">DR. MACHAVARAM GOWRISANKAR</h2>
+            <p class="ceo-title">CEO & Chairman of International Seva Trust</p>
+            <p class="trust-name">Telugu Samscruthi Sahithi Seva Trust Reg.no.34/23</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section" id="ourmission">
+        <div class="section-container">
+            <h2 class="section-title">OUR MISSION</h2>
+            <div class="content">
+                <p>Telugu Samscruthi Sahithi Seva Trust offers a platform for you to unveil your hidden talents to the world. Each person possesses a unique and special talent, yet often these abilities go unnoticed or unappreciated. Registered by the Government of India, Telugu Samscruthi Sahithi Seva Trust provides you with the chance to be nominated for prestigious awards and gain recognition for your exceptional skills.</p>
+                
+                <p>By becoming a part of this platform, you have the potential to receive prestigious awards and elevate your success to new heights. This is an opportunity to stand among many world-famous and successful individuals. Don't hesitate to showcase your talents and make the most of this opportunity.</p>
+                
+                <p>Don't miss out on the chance to showcase your talents and make a mark in the world.</p>
+                
+                <div class="motto">
+                    "Empowering talents with our trust's support, to fuel the journey towards dream fulfillment."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section 2 -->
+    <section class="carousel-section">
+        <div class="slick-carousel">
+            <div><img src="./Resources/Sllick/Beng_guru.png" alt="Event 5"></div>
+            <div><img src="./Resources/Sllick/Apparav.jpg" alt="Event 6"></div>
+            <div><img src="./Resources/Sllick/vij1.jpg" alt="Event 7"></div>
+            <div><img src="./Resources/Sllick/Beng_1.JPG" alt="Event 8"></div>
+            <div><img src="./Resources/Sllick/kuchupudi1.jpg" alt="Event 9"></div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards-section" id="award">
+        <div class="section-container">
+            <h2 class="section-title">Awards & Records Categories</h2>
+            <p class="awards-description">Telugu Samscruthi Sahithi Seva Trust gives you the option to choose from the following categories to get the award and to make and break any record in your respective field. When you fill out the registration form please select your field category. Such categories are Acting, Academic, Agriculture, Amazing Magic, Animals/Birds, Any Type of Collection, Art, Astrology, Vastu, Vedic, Beauty & Make-Up Artist, Biggest and Smallest, Brain Power, Business, Cookery (Cooking), Creativity, Culture, Dance, Education/Academy/Institute, Entertainment, Event, Health Care, Medical, Pharmacy, Hotel, Tourism and Travels, Industry/Company, Information Technology, Magic, Mass Media Communication, Mimicry, Miracle Act, Modeling, Music And Singing, Outstanding, Patience, Performance, Popular Records, Print & Publishing, Recitation, Science & Technology, Singing, Specialty Gifts, Sports, Strange But True, Stunt, Sketching, Teacher/Professor/Researcher/Writer, Unique Achievement of Social Work, Wonder Act, Yoga, Young Achievers and if your category is not mentioned in this list then you can select "Others".</p>
+            
+            <div class="notification-image">
+                <img src="./Resources/Notification/Noti_Delhi.jpg" alt="Award Notification">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-container">
+        <a href="https://forms.gle/Ck6geznwgZdmDice7" class="register-btn">Register Now</a>
+    </section>
+
+    <!-- Visitor Counter -->
+    <section class="visitor-section">
+        <div class="visits">
+            Visitor Count: 
+            <a href="#" target="_blank">
+                <img src="https://hitwebcounter.com/counter/counter.php?page=21264399&style=0006&nbdigits=5&type=page&initCount=5000" title="Counter Widget" alt="Visitor Counter">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.privacypolicies.com/live/b09addaa-e40b-44b1-b858-d96ab48618bf" target="_blank">Privacy Policy</a>
+            <a href="https://www.termsfeed.com/live/5737c1a9-54dc-4ea3-bb32-6b62ba3c7176" target="_blank">Terms of Service</a>
+            <a href="https://www.privacypolicies.com/live/3b81e906-ef11-4cb0-88a3-321d08bd6dba" target="_blank">Cookie Policy</a>
+        </div>
+        <p>© 2024 by Telugu Samscruthi Sahithi Seva Trust. Designed by The Narasimha Sai Srinivas Machavaram</p>
     </footer>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-    <script src="Tssstjs.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script>
+        // Fixed Header on Scroll
+        $(window).on('scroll', function() {
+            if ($(this).scrollTop() > 100) {
+                $('#fixedHeader').addClass('visible');
+            } else {
+                $('#fixedHeader').removeClass('visible');
+            }
+        });
+
+        // Slick Carousel
+        $(document).ready(function(){
+            $('.slick-carousel').slick({
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: true,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: true,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+            $(document).on('click', '.slick-slide', function() {
+                var index = $(this).data('slick-index');
+                $(this).closest('.slick-carousel').slick('slickGoTo', index);
+            });
+        });
+
+        // Popup Functionality
+        window.onload = function() {
+            var overlay = document.getElementById('overlay');
+            var popup1 = document.getElementById('popupAd1');
+            overlay.style.display = 'block';
+            popup1.style.display = 'block';
+            setTimeout(function() {
+                popup1.classList.add('show');
+            }, 100);
+        };
+
+        function closePopup(popupNumber) {
+            var currentPopup = document.getElementById('popupAd' + popupNumber);
+            currentPopup.classList.remove('show');
+
+            setTimeout(function () {
+                currentPopup.style.display = 'none';
+
+                var nextPopupNumber = popupNumber + 1;
+                var nextPopup = document.getElementById('popupAd' + nextPopupNumber);
+
+                if (nextPopup) {
+                    nextPopup.style.display = 'block';
+                    setTimeout(function () {
+                        nextPopup.classList.add('show');
+                    }, 100);
+                } else {
+                    document.getElementById('overlay').style.display = 'none';
+                }
+            }, 500);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            var mainNav = document.getElementById('mainNav');
+            var fixedNav = document.getElementById('fixedNav');
+            mainNav.classList.toggle('active');
+            fixedNav.classList.toggle('active');
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
