@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Telugu Samscruthi Sahithi Seva Trust</title>
+    <link rel="stylesheet" href="Tssststyles.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="icon" href="./Resources/Trust_logo.png"/>
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="header" id="mainHeader">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="./Resources/Trust_logo.png" alt="Trust Logo">
+                </div>
+                <div>
+                    <h1 class="header-title">Telugu Samscruthi Sahithi Seva Trust</h1>
+                    <div class="reg-number">Reg.no.34/23</div>
+                </div>
+                <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            </div>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html#ourmission">ABOUT US</a></li>
+                    <li><a href="index.html#award">AWARDS</a></li>
+                    <li><a href="index.html#videos">VIDEOS</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Fixed Header -->
+    <header class="header fixed-header" id="fixedHeader">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="./Resources/Trust_logo.png" alt="Trust Logo">
+                </div>
+                <div>
+                    <h1 class="header-title">Telugu Samscruthi Sahithi Seva Trust</h1>
+                    <div class="reg-number">Reg.no.34/23</div>
+                </div>
+                <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            </div>
+            <nav id="fixedNav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html#ourmission">ABOUT US</a></li>
+                    <li><a href="index.html#award">AWARDS</a></li>
+                    <li><a href="index.html#videos">VIDEOS</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery Hero Section -->
+    <section class="gallery-hero">
+        <div class="section-container">
+            <h1 class="section-title">EVENT GALLERY</h1>
+            <p class="gallery-subtitle">Explore our memorable moments and successful events</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-filter-section">
+        <div class="section-container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="bengaluru">Bengaluru</button>
+                <button class="filter-btn" data-filter="delhi">Delhi</button>
+                <button class="filter-btn" data-filter="rajahmundry">Rajahmundry</button>
+                <button class="filter-btn" data-filter="anniversary">Anniversary</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="section-container">
+            <div class="gallery-grid" id="galleryGrid">
+                
+                <!-- Bengaluru Events -->
+                <div class="gallery-item" data-category="bengaluru">
+                    <img src="./Resources/Gallery/bengaluru_1.jpg" alt="Bengaluru Event 1">
+                    <div class="gallery-overlay">
+                        <h3>Bengaluru Event</h3>
+                        <p>Award Ceremony</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bengaluru">
+                    <img src="./Resources/Gallery/bengaluru_2.jpg" alt="Bengaluru Event 2">
+                    <div class="gallery-overlay">
+                        <h3>Bengaluru Event</h3>
+                        <p>Cultural Program</p>
+                    </div>
+                </div>
+
+                <!-- Delhi Events -->
+                <div class="gallery-item" data-category="delhi">
+                    <img src="./Resources/Gallery/delhi_1.jpg" alt="Delhi Event 1">
+                    <div class="gallery-overlay">
+                        <h3>Delhi Event</h3>
+                        <p>Award Distribution</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="delhi">
+                    <img src="./Resources/Gallery/delhi_2.jpg" alt="Delhi Event 2">
+                    <div class="gallery-overlay">
+                        <h3>Delhi Event</h3>
+                        <p>Guest Speech</p>
+                    </div>
+                </div>
+
+                <!-- Rajahmundry Events -->
+                <div class="gallery-item" data-category="rajahmundry">
+                    <img src="./Resources/Gallery/rajahmundry_1.jpg" alt="Rajahmundry Event 1">
+                    <div class="gallery-overlay">
+                        <h3>Rajahmundry Event</h3>
+                        <p>Opening Ceremony</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="rajahmundry">
+                    <img src="./Resources/Gallery/rajahmundry_2.jpg" alt="Rajahmundry Event 2">
+                    <div class="gallery-overlay">
+                        <h3>Rajahmundry Event</h3>
+                        <p>Award Presentation</p>
+                    </div>
+                </div>
+
+                <!-- Anniversary Events -->
+                <div class="gallery-item" data-category="anniversary">
+                    <img src="./Resources/Gallery/anniversary_1.jpg" alt="Anniversary 1">
+                    <div class="gallery-overlay">
+                        <h3>First Anniversary</h3>
+                        <p>Celebration</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="anniversary">
+                    <img src="./Resources/Gallery/anniversary_2.jpg" alt="Anniversary 2">
+                    <div class="gallery-overlay">
+                        <h3>Anniversary</h3>
+                        <p>Special Moments</p>
+                    </div>
+                </div>
+
+                <!-- Add more gallery items as needed -->
+                <!-- You can duplicate and modify these divs for more photos -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <button class="lightbox-prev">&#10094;</button>
+        <button class="lightbox-next">&#10095;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.privacypolicies.com/live/b09addaa-e40b-44b1-b858-d96ab48618bf" target="_blank">Privacy Policy</a>
+            <a href="https://www.termsfeed.com/live/5737c1a9-54dc-4ea3-bb32-6b62ba3c7176" target="_blank">Terms of Service</a>
+            <a href="https://www.privacypolicies.com/live/3b81e906-ef11-4cb0-88a3-321d08bd6dba" target="_blank">Cookie Policy</a>
+        </div>
+        <p>© 2024 by Telugu Samscruthi Sahithi Seva Trust. Designed by The Narasimha Sai Srinivas Machavaram</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="Tssstjs.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>

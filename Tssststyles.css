@@ -1,15 +1,115 @@
-/* CSS for styling the header */
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: yellow;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    width: auto;
-
+/* ===================================
+   Global Styles & Reset
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+:root {
+    --primary-color: #1e7aaf;
+    --secondary-color: #fbbf24;
+    --accent-color: #dc2626;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-light: #f9fafb;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* ===================================
+   Header Styles
+   =================================== */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3b5af6 100%);
+    color: var(--white);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background: var(--white);
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.reg-number {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+/* ===================================
+   Navigation
+   =================================== */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ===================================
+   Fixed Header
+   =================================== */
 .fixed-header {
     position: fixed;
     top: -100%;
@@ -23,362 +123,249 @@
     top: 0;
 }
 
-.header-title, .para1 {
-    font-size: 1.5em;
-    color: rgb(255, 0, 0);
-    text-shadow: 3px 3px 5px rgba(120, 120, 120, 0.5);
-    margin: 10px 0;
+.fixed-header .logo img {
+    width: 60px;
+    height: 60px;
 }
 
-.header nav ul {
-    list-style-type: upper-alpha;
-    padding: 0;
-    margin: 10px 0;
+.fixed-header .header-title {
+    font-size: 1.3rem;
 }
 
-.header nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.header nav ul li a {
-    color: #000;
-    text-decoration: none;
-}
-
-.header nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* CSS for the main content */
-.dad {
-    display: block;
-    margin: 20px auto;
-    max-width: 90%;
-    height: auto;
-}
-
-.subname {
-    text-align:center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgb(0, 106, 255);
-    text-shadow: 3px 3px 5px rgba(120, 120, 120, 0.5);
-    /* margin: 0; */
-}
-
-.subname2 {
-    text-align:center;
-    font-family: 'Gill Sans', 'Arial Narrow Bold', sans-serif;
-    color: rgb(0, 106, 255);
-    text-shadow: 3px 3px 5px rgba(120, 120, 120, 0.5);
-    /* margin: 0; */
-}
-.name {
-    font-size: 1.5em;
-    text-align:center;
-    font-family: 'Lucida Sans';
-    color: rgb(0, 106, 255);
-    text-shadow: 3px 3px 5px rgba(120, 120, 120, 0.5);
-}
-
-.subname {
-    font-size: 1.2em;
-}
-
-.subname2 {
-    font-size: 1.2em;
-}
-
-.image-container {
+/* ===================================
+   Hero Section
+   =================================== */
+.hero-section {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    padding: 4rem 2rem;
     text-align: center;
 }
 
-.image-container img {
-    width: 100%;
-    height: auto;
-    max-width: 600px; /* Ensures the image doesn't get too large on bigger screens */
+.ceo-section {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-
-/* CSS for paragraph styling */
-p {
-    color: #000;
-    font-size: 1em;
-    line-height: 1.5;
-    margin: 20px auto;
-    max-width: 90%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.ceo-name {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
-/* CSS for Slick carousel */
+.ceo-title, .trust-name {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin: 0.5rem 0;
+}
+
+/* ===================================
+   Carousel Section
+   =================================== */
+.carousel-section {
+    padding: 4rem 2rem;
+    background: var(--white);
+}
+
 .slick-carousel {
-    width: 80%;
+    max-width: 1200px;
     margin: 0 auto;
-}
-
-.slick-carousel img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
 }
 
 .slick-slide {
-    transform: scale(0.9);
-    opacity: 0.7;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    padding: 0 10px;
+    transition: all 0.3s ease;
 }
 
-.slick-center {
+.slick-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.slick-slide:not(.slick-center) img {
+    transform: scale(0.85);
+    opacity: 0.6;
+}
+
+.slick-center img {
     transform: scale(1);
     opacity: 1;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Center the button on the page */
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90px;
+/* ===================================
+   Mission Section
+   =================================== */
+.mission-section {
+    padding: 4rem 2rem;
+    background: var(--bg-light);
 }
 
-/* Styles for the register button */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.motto {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3b5af6 100%);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ===================================
+   Awards Section
+   =================================== */
+.awards-section {
+    padding: 4rem 2rem;
+    background: var(--white);
+}
+
+.awards-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.notification-image {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.notification-image img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ===================================
+   CTA Button
+   =================================== */
+.cta-container {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--bg-light);
+}
+
 .register-btn {
-    background-color: yellowgreen;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    cursor: pointer;
-    font-size: 1em;
+    display: inline-block;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: var(--white);
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
     border-radius: 50px;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
 
 .register-btn:hover {
-    background-color: rgb(73, 73, 252);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
-/* General reset for margin and padding to prevent overflow */
-body, html {
-    margin: 0;
-    padding: 5px;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+/* ===================================
+   Visitor Counter
+   =================================== */
+.visitor-section {
+    text-align: center;
+    padding: 2rem;
+    background: var(--white);
 }
 
-/* Ensure header doesn't cause overflow */
-.fixed-header {
-    width: 100%;
-    box-sizing: border-box;
+.visits {
+    display: inline-block;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);
+    border: 2px solid #8b5cf6;
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
-/* Adjust images and containers to fit within viewport */
-.dad, .slick-carousel img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Prevent horizontal scrolling in carousel */
-.slick-carousel .slick-slide {
-    float: left;
-}
-
-
-
-.flickerButton {
-    background: rgb(0, 255, 34);
-    border: none;
-    padding: 10px 20px;
-    font-size: 36px;
-    color: white;
-    cursor: pointer;
-    border-radius: 50px;
-    font-family: Impact;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90px;
-    margin-bottom: 10px;
-    /* position: absolute; */
-    animation: flicker 1s infinite, scrollLeftRight 9s linear infinite;
-  }
- 
-
-  .flickerButton:hover {
-    background-color: rgb(73, 73, 252);
-  }
-
-  .flickerButton a {
-    color: inherit;
-  }
-  
-  @keyframes flicker {
-    10% { background: rgb(255, 225, 0); }
-    33% { background: rgb(255, 242, 0); }
-    66% { background: rgb(191, 0, 255); }
-    10% { background: rgb(255, 0, 0); }
-  }
-  .scroll-container {
-    width: 110%; /* Adjust to your needs */
-    overflow: hidden; /* Ensure no overflow */
-    position: relative;
-  }
-  @keyframes scrollLeftRight {
-    0% {
-      left: 50%; /* Start position (off-screen left) */
-    }
-    50% {
-      left: 50%; /* Center */
-      transform: translateX(-50%);
-    }
-    100% {
-      left: 50%; /* End position (off-screen right) */
-    }
-  }
-
-
-
-/* Footer styles */
+/* ===================================
+   Footer
+   =================================== */
 footer {
-    background-color: #333;
-    color: #4c0000;
-    padding: 20px 0;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: var(--white);
+    padding: 3rem 2rem 1.5rem;
     text-align: center;
 }
 
-
-.footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  #flickerButton {
-    margin-bottom: 100px; /* Ensures space between button and footer */
-  }
-  
-
 .footer-links {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
-
 .footer-links a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
-    margin: 0 15px;
+    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #f39c12;
+    color: var(--secondary-color);
 }
 
 footer p {
-    color: #fff;
-    margin-top: 10px;
-    font-size: 14px;
+    font-size: 0.9rem;
+    color: #9ca3af;
+    margin-top: 1rem;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-    .footer-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-links a {
-        margin: 5px 0;
-    }
-}
-
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .header-title, .para1 {
-        font-size: 1.2em;
-    }
-
-    .header nav ul li {
-        margin: 0 10px;
-    }
-
-    .name {
-        font-size: 1.2em;
-    }
-
-    .subname {
-        font-size: 1em;
-    }
-
-    .subname2 {
-        font-size: 1em;
-    }
-    .button-container {
-        height: 70px;
-    }
-    
-    .flickerButton {
-        height: 70px;
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-
-
-    .register-btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-title, .para1 {
-        font-size: 1em;
-    }
-
-    .header nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .header nav ul li {
-        margin: 5px 0;
-    }
-
-    .name {
-        font-size: 1em;
-    }
-
-    .subname {
-        font-size: 0.9em;
-    }
-    .subname2 {
-        font-size: 0.9em;
-    }
-
-    p {
-        font-size: 0.9em;
-    }
-
-    .button-container {
-        height: 60px;
-    }
-
-
-    .flickerButton {
-        height: 60px;
-        padding: 8px 16px;
-        font-size: 0.8em;
-    }
-    .register-btn {
-        padding: 8px 16px;
-        font-size: 0.8em;
-    }
-}
-
-
-/*this is the feature of poopup*/
+/* ===================================
+   Popup Styles
+   =================================== */
 .overlay {
     display: none;
     position: fixed;
@@ -386,9 +373,11 @@ footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 9998;
+    backdrop-filter: blur(5px);
 }
+
 .popup {
     display: none;
     position: fixed;
@@ -396,49 +385,156 @@ footer p {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
     opacity: 0;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: var(--white);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     z-index: 9999;
-    padding: 20px;
+    padding: 2rem;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 16px;
     max-width: 90%;
-    width: 400px;
+    width: 500px;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
 .popup.show {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
+
 .popup img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
 }
+
 .popup .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: red;
-    color: white;
+    top: -15px;
+    right: -15px;
+    background: var(--accent-color);
+    color: var(--white);
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 24px;
+    line-height: 40px;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
+.popup .close-btn:hover {
+    background: #b91c1c;
+    transform: rotate(90deg);
+}
 
-  .visits {
-    display: inline-block;
-    font-family: sans-serif;
-    font-size: 14px;
-    background-color: #e7b8ffec; /* soft yellow */
-    border: 1px dotted #666;
-    border-radius: 10px;
-    padding: 5px 12px;
-    color: #333;
-  }
+/* ===================================
+   Mobile Menu Toggle
+   =================================== */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 1024px) {
+    .header-title {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-section {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+        display: none;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header-title {
+        font-size: 1.3rem;
+    }
+
+    .ceo-name {
+        font-size: 1.6rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .content p, .awards-description {
+        font-size: 1rem;
+    }
+
+    .motto {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 1.1rem;
+    }
+
+    .logo img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .ceo-name {
+        font-size: 1.4rem;
+    }
+
+    .ceo-title, .trust-name {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .register-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
