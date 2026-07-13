@@ -37,7 +37,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.03) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.03) 0%, transparent 50%),
         repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(124, 58, 237, 0.02) 10px, rgba(124, 58, 237, 0.02) 20px);
@@ -45,7 +45,7 @@ body::before {
     z-index: 1;
 }
 
-body > * {
+body>* {
     position: relative;
     z-index: 2;
 }
@@ -68,7 +68,7 @@ body > * {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
     pointer-events: none;
 }
 
@@ -95,14 +95,14 @@ body > * {
     background: var(--white);
     padding: 0.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .header-title {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .reg-number {
@@ -206,7 +206,8 @@ nav ul li a:hover::after {
     font-weight: 700;
 }
 
-.ceo-title, .trust-name {
+.ceo-title,
+.trust-name {
     font-size: 1.2rem;
     color: var(--text-light);
     margin: 0.5rem 0;
@@ -216,7 +217,7 @@ nav ul li a:hover::after {
    Carousel Section
    =================================== */
 .carousel-section {
-    padding: 4rem 2rem;
+    padding: 3rem 2rem 4rem;
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
 }
@@ -224,38 +225,98 @@ nav ul li a:hover::after {
 .slick-carousel {
     max-width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
+/* Pre-init guard: hide all slides except first before Slick loads */
+.slick-carousel:not(.slick-initialized) > div {
+    display: none;
+}
+
+.slick-carousel:not(.slick-initialized) > div:first-child {
+    display: block;
+}
+
+.slick-carousel:not(.slick-initialized) > div:first-child img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    background: #f3f0fa;
+    border-radius: 12px;
+}
+
+/* Slide item */
 .slick-slide {
-    padding: 0 10px;
-    transition: all 0.3s ease;
+    padding: 0 8px;
+    outline: none;
 }
 
 .slick-slide img {
     width: 100%;
-    height: auto;
+    height: 400px;
+    object-fit: contain;
+    background: #f3f0fa;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.slick-slide:not(.slick-center) img {
-    transform: scale(0.85);
-    opacity: 0.6;
+.slick-slide img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
 }
 
-.slick-center img {
-    transform: scale(1);
+/* Arrow buttons */
+.slick-prev,
+.slick-next {
+    width: 44px;
+    height: 44px;
+    z-index: 10;
+    background: var(--primary-color);
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    background: var(--violet-dark);
+}
+
+.slick-prev { left: -22px; }
+.slick-next { right: -22px; }
+
+.slick-prev::before,
+.slick-next::before {
+    font-size: 18px;
     opacity: 1;
-    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.2);
+    color: white;
 }
+
+/* Dots */
+.slick-dots {
+    bottom: -32px;
+}
+
+.slick-dots li button::before {
+    font-size: 10px;
+    color: var(--primary-color);
+    opacity: 0.4;
+}
+
+.slick-dots li.slick-active button::before {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+
 
 /* ===================================
    Mission Section
    =================================== */
 .mission-section {
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,245,255,0.9) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 245, 255, 0.9) 100%);
     backdrop-filter: blur(10px);
 }
 
@@ -349,7 +410,8 @@ nav ul li a:hover::after {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
 }
@@ -376,7 +438,7 @@ nav ul li a:hover::after {
    =================================== */
 .awards-section {
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,245,255,0.9) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 245, 255, 0.9) 100%);
     backdrop-filter: blur(10px);
     clear: both;
     width: 100%;
@@ -447,7 +509,7 @@ nav ul li a:hover::after {
 .visitor-section {
     text-align: center;
     padding: 2rem;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,245,255,0.9) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 245, 255, 0.9) 100%);
     backdrop-filter: blur(10px);
 }
 
@@ -557,7 +619,7 @@ footer p {
     font-size: 24px;
     line-height: 40px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -640,7 +702,8 @@ footer p {
         padding: 2rem;
     }
 
-    .content p, .awards-description {
+    .content p,
+    .awards-description {
         font-size: 1rem;
     }
 
@@ -658,6 +721,12 @@ footer p {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+
+    /* Carousel: reduce height on tablet */
+    .slick-slide img,
+    .slick-carousel:not(.slick-initialized) > div:first-child img {
+        height: 280px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -674,7 +743,8 @@ footer p {
         font-size: 1.4rem;
     }
 
-    .ceo-title, .trust-name {
+    .ceo-title,
+    .trust-name {
         font-size: 1rem;
     }
 
@@ -684,6 +754,16 @@ footer p {
 
     .section-container {
         padding: 1.5rem;
+    }
+
+    /* Carousel: reduce height on mobile */
+    .slick-slide img,
+    .slick-carousel:not(.slick-initialized) > div:first-child img {
+        height: 220px;
+    }
+
+    .carousel-section {
+        padding: 2rem 0.5rem;
     }
 
     .register-btn {
